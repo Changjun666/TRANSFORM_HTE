@@ -18,7 +18,7 @@ AFTrees_mydata_trt_1 = AFTrees(
   status = mydata_trt_1$Event,
   nskip = 10000,
   ndpost = 5000,
-  k = 2, #depth? default=2
+  k = 2, 
   ntree = 200,
   x.test = mydata_trt_0 %>% select(-Time, -Event, -ID) %>% as.data.frame(),
   nonparametric = F
@@ -102,9 +102,9 @@ ggsave("D:/hp/Desktop/Research in Yale/TF project/plot/Figure_S2_CATE_HF_hist_ma
 t.test(iste_mean, mu = 0)
 
 # ISTE was used as dependent variables in an exploratory linear regression analysis
-# To estimate standard errors and uncertainty intervals for the regression coefficients, we drew for each individual 1000 posterior MCMC samples of ISTE from the AFT-BART models.
+# To estimate standard errors and uncertainty intervals for the regression coefficients, we drew for each individual 5000 posterior MCMC samples of ISTE from the AFT-BART models.
 result_lm_all <- NULL
-for (i in 1:5000){ # 1000 posterior MCMC samples of ISTE from the AFT-BART model
+for (i in 1:5000){ # 5000 posterior MCMC samples of ISTE from the AFT-BART model
   iste <- iste_mat[,i]
   result_lm <- X %>%
     select(-W, - Time, -Event) %>% 
