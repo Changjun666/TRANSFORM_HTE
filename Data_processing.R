@@ -235,5 +235,5 @@ mydata_trt_0_imp <- X %>%
   select(-W)
 
 mean(X$Time)
-mean(X[X$Event==1,]$Time)
-mean(X[X$Event==0,]$Time)
+median(X[X$Event==1,]$Time)
+median(X[X$Event==0,]$Time)
